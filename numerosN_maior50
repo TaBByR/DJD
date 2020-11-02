@@ -1,0 +1,27 @@
+using System;
+
+namespace randomN_maior50
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random r = new Random();
+            int counter = 0;
+            int n = r.Next(100);
+            int numero;
+
+            for (int i = 0; i < n; i++)
+            {
+                numero = r.Next(101);
+
+                if (numero > 50)
+                {
+                    counter++;
+                }
+            }
+
+            Console.WriteLine(counter);
+        }
+    }
+}
