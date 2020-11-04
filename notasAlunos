@@ -1,0 +1,46 @@
+using System;
+using System.Dynamic;
+
+namespace media_nAlunos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random r = new Random();
+            int n = r.Next(1,51);
+            int[] alunos = new int[n];
+            int[] notas = new int[n];
+            int best = 0;
+            string notasResult = "Notas boas:";
+            string bestResult = "";
+
+            for (int i = 0; i < n; i++)
+            {
+                notas[i] = r.Next(21);
+                alunos[i] = i;
+
+                if (notas[i] >= 15)
+                {
+                    notasResult += "\nAluno " + alunos[i] + " teve: " + notas[i];
+                }
+
+                if (notas[i] > best)
+                {
+                    best = notas[i];
+                }
+            }
+
+            for (int k = 0; k < n; k++)
+            {
+                if (notas[k] == best)
+                {
+                    bestResult += "\n" + alunos[k];
+                }                    
+            }
+
+            Console.WriteLine(notasResult + "\n A melhor nota é: " + best + "\nE corresponde aos alunos" + bestResult);
+
+        }
+    }
+}
