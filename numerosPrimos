@@ -1,0 +1,33 @@
+using System;
+using System.Security.Cryptography.X509Certificates;
+
+namespace numeros_primos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random r = new Random();
+            int n = r.Next(1,101);
+            int counter;
+
+            for(int i = 1; i < n; i++)
+            {
+                counter = 0;
+
+                for (int k = 1; k <= i; k++)
+                {
+                    if (i % k == 0)
+                    {
+                        counter++;
+                        
+                    }
+                }
+                if (counter == 2)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+    }
+}
