@@ -1,0 +1,86 @@
+using System;
+using System.Linq.Expressions;
+
+namespace simulaCombate
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random r = new Random();
+            int p1_atk1 = r.Next(1, 11);
+            int p1_atk2 = r.Next(1, 11);
+
+            int p2_atk1 = r.Next(1, 11);
+            int p2_atk2 = r.Next(1, 11);
+
+            int p1_hp = 100;
+            int p2_hp = 100;
+
+            int turno = r.Next(1,3);
+            int block;
+            int chooseAtk;
+
+            do
+            {
+                block = r.Next(1, 3);
+                chooseAtk = r.Next(1, 3);
+
+                if (turno == 1)
+                {
+                    if (block == 1)
+                    {
+                        if (chooseAtk == 1)
+                        {
+                            p2_hp -= p1_atk1;
+                            Console.WriteLine("p2 loses " + p1_atk1 + " hp");
+                        }
+                        else
+                        {
+                            p2_hp -= p1_atk2;
+                            Console.WriteLine("p2 loses " + p1_atk2 + " hp");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("p2 blocked");
+                    }
+
+                    turno = 2;
+                }
+                else
+                {
+                    if (block == 1)
+                    {
+                        if (chooseAtk == 1)
+                        {
+                            p1_hp -= p2_atk1;
+                            Console.WriteLine("p1 loses " + p2_atk1 + " hp");
+                        }
+                        else
+                        {
+                            p1_hp -= p2_atk2;
+                            Console.WriteLine("p1 loses " + p2_atk2 + " hp");
+                        }
+                    }
+                    else 
+                    {
+                        Console.WriteLine("p1 blocked");
+                    }
+
+                    turno = 1;
+                }
+
+            } while (p1_hp > 0 && p2_hp > 0);
+
+            if (p1_hp <= 0)
+            {
+                Console.WriteLine("p1 wins");
+            }
+            else 
+            {
+                Console.WriteLine("p2 wins");
+            }
+        }
+    }
+}
