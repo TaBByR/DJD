@@ -1,0 +1,28 @@
+using System;
+
+namespace ultimaNotaPositiva
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random r = new Random();
+            int[] notas = new int[20];
+            int[] ultimaNotaPositiva = new int[2];
+
+            for (int i = 0; i < notas.Length; i++)
+            {
+                notas[i] = r.Next(21);
+
+                if (notas[i] >= 10)
+                {
+                    ultimaNotaPositiva[0] = notas[i];
+                    ultimaNotaPositiva[1] = i;
+                }
+            }
+
+            Console.WriteLine("Ultima nota positiva foi do aluno " + ultimaNotaPositiva[1] + " com o valor " + ultimaNotaPositiva[0]);
+
+        }
+    }
+}
