@@ -1,0 +1,37 @@
+using System;
+
+namespace leaderboardN
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random r = new Random();
+            int nAlunos = r.Next(51);
+            int nota;
+            int primeiro = 0;
+            int segundo = 0;
+            int terceiro = 0;
+
+            for (int i = 0; i < nAlunos; i++)
+            {
+                nota = r.Next(21);
+
+                if (nota > primeiro)
+                {
+                    primeiro = nota;
+                }
+                else if (nota > segundo && nota < primeiro)
+                {
+                    segundo = nota;
+                }
+                else if (nota > terceiro && nota < segundo)
+                {
+                    terceiro = nota;
+                }
+            }
+
+            Console.WriteLine(primeiro + "\n" + segundo + "\n" + terceiro);
+        }
+    }
+}
