@@ -1,0 +1,70 @@
+using System;
+
+namespace matrix
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random r = new Random();
+            int[,] m = new int[5, 5];
+            int valor;
+            int soma = 0;
+
+            // atribuir valores
+            for (int yy = 0; yy < m.GetLength(0); yy++)
+            {
+                for (int xx = 0; xx < m.GetLength(1); xx++)
+                {
+                    valor = r.Next(10);
+                    m[yy, xx] = valor;
+                }
+            }
+
+            // soma da linha 3
+            for (int xx = 0; xx < m.GetLength(1); xx++)
+            {
+                soma += m[2, xx];
+            }
+            Console.WriteLine(soma);
+            soma = 0;
+
+            // soma da linha 2
+            for (int xx = 0; xx < m.GetLength(1); xx++)
+            {
+
+                soma += m[1, xx];
+            }
+            Console.WriteLine(soma);
+            soma = 0;
+
+            // soma diagonal principal
+            for (int xx = 0; xx < m.GetLength(1); xx++)
+            {
+                soma += m[xx,xx];
+            }
+            Console.WriteLine(soma);
+            soma = 0;
+
+            // soma de diagonal secundária
+            int contador = 0;
+            for (int xx = m.GetLength(1)-1; xx >= 0; xx--)
+            {
+                soma += m[contador, xx];
+                contador++;
+            }
+            Console.WriteLine(soma);
+            soma = 0;
+
+            // soma de todos os elementos
+            for (int yy = 0; yy < m.GetLength(0); yy++)
+            {
+                for (int xx = 0; xx < m.GetLength(1); xx++)
+                {
+                    soma += m[yy, xx];
+                }
+            }
+            Console.WriteLine(soma);
+        }
+    }
+}
