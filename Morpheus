@@ -1,0 +1,40 @@
+using System;
+
+namespace Morpheus
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random r = new Random();
+
+            int[,] a = new int[4,6];
+            int[,] b = new int[4,6];
+            int[,] s = new int[4,6];
+            int[,] d = new int[4,6];
+
+            for (int yy = 0; yy < a.GetLength(0); yy++)
+            {
+                for (int xx = 0; xx < a.GetLength(1); xx++)
+                {
+                    a[yy, xx] = r.Next(10);
+                    b[yy, xx] = r.Next(10);
+
+                    s[yy, xx] = a[yy, xx] + b[yy, xx];
+
+                    if (a[yy, xx] > b[yy, xx])
+                    {
+                        d[yy, xx] = a[yy, xx] - b[yy, xx];
+                    }
+                    else
+                    {
+                        d[yy, xx] = b[yy, xx] - a[yy, xx];
+                    }
+
+                    Console.WriteLine("Somas de A e B = " + s[yy, xx]);
+                    Console.WriteLine("Diferenças de A e B = " + d[yy, xx]);
+                }
+            }
+        }
+    }
+}
